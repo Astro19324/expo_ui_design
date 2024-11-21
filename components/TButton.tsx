@@ -28,25 +28,25 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#101010",
     borderRadius: 10,
-    backgroundColor: "#101010",
+    backgroundColor: "#F5F5F5",
   },
   sm: {
     fontSize: 15,
   },
   md: {
-    fontSize: 20,
+    fontSize: 19,
     paddingVertical: 10,
     paddingHorizontal: 20,
     color: "white",
   },
   lg: {
-    fontSize: 25,
+    fontSize: 23,
   },
   xl: {
-    minHeight: 170,
+    minHeight: 150,
     paddingTop: 30,
     paddingLeft: 20,
-    fontSize: 30,
+    fontSize: 26,
   },
 });
 

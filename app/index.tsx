@@ -35,9 +35,11 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   head: {
-    height: 70,
+    height: 100,
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
+    gap: 20,
+    paddingHorizontal: 20,
     flexDirection: "row",
   },
   content: {
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
   },
 
   textSize: {
-    fontSize: 20,
+    fontSize: 17,
   },
   textColor: { color: "#88BAEF" },
 });

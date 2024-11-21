@@ -1,7 +1,6 @@
-import { StyleSheet, View, Text, Pressable, ScrollView } from "react-native";
-import { Link, router } from "expo-router";
+import { StyleSheet, View } from "react-native";
+import { Link } from "expo-router";
 import Layout from "@/components/Layout";
-import TButton from "@/components/TButton";
 
 export default function Profile() {
   return (

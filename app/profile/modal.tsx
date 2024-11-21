@@ -1,7 +1,6 @@
 import { StyleSheet, View, Text, Pressable } from "react-native";
 import { Image } from "expo-image";
 import Modal from "@/components/Modal";
-import TButton from "@/components/TButton";
 
 const blurhash =
   "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
@@ -20,7 +19,9 @@ const ProfileModal = () => {
         </View>
         <Text style={styles.name}>John Smith</Text>
         <Text style={styles.description}>
-          lajlkfjdlskjfklsjldfjsdlkjflksdjflsjdlkfjsdkljflsdjdlkfjsdflajlkfjdlskjfklsjldfjsdlkjflksdjflsjdlkfjsdkljflsdjdlkfjsdf
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quasi
+          vitae deserunt debitis dicta libero non minus ab, quia fuga commodi
+          iusto ut ducimus optio tenetur dolorem in soluta quis!
         </Text>
         <Pressable
           style={({ pressed }) => [

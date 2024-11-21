@@ -1,40 +1,22 @@
 import { useState } from "react";
-import { Pressable, StyleSheet, TextInput, View, Text } from "react-native";
-import Animated, { FadeIn, SlideInDown } from "react-native-reanimated";
-import { Link } from "expo-router";
-import TButton from "@/components/TButton";
+import { TextInput, View, Text, StyleSheet, Pressable } from "react-native";
 
-import AntDesign from "@expo/vector-icons/AntDesign";
+import Modal from "@/components/Modal";
 
-export default function Modal() {
+const TopicModal = () => {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [state, setState] = useState(true);
 
   const onSubmit = async () => {
-    setState(!state);
+    setState(false);
   };
 
   return (
-    <Animated.View entering={FadeIn} style={styles.root}>
-      <Link href={"/"} asChild>
-        <Pressable style={StyleSheet.absoluteFill} />
-      </Link>
-
-      <Animated.View entering={SlideInDown} style={styles.container}>
-        <View
-          style={{
-            justifyContent: "flex-end",
-            marginLeft: "auto",
-          }}
-        >
-          <Link href={"/"}>
-            <AntDesign name="closecircleo" size={40} color="black" />
-          </Link>
-        </View>
-
+    <Modal>
+      <View style={styles.container}>
         <View style={styles.input}>
-          <Text style={state ? undefined : { color: "#ECECEC" }}>
+          <Text style={state ? styles.textEnable : styles.textDisable}>
             Enter Your Email
           </Text>
           <TextInput
@@ -49,7 +31,7 @@ export default function Modal() {
 
         {state === false ? (
           <View style={styles.input}>
-            <Text>Enter Your Code</Text>
+            <Text style={styles.textEnable}>Enter Your Code</Text>
             <TextInput
               style={styles.enable}
               onChangeText={setCode}
@@ -61,34 +43,45 @@ export default function Modal() {
           <View />
         )}
 
-        <TButton title="Submit" onPress={onSubmit} />
-      </Animated.View>
-    </Animated.View>
+        <Pressable
+          style={({ pressed }) => [
+            { opacity: pressed ? 0.7 : 1 },
+            styles.button,
+          ]}
+          onPress={onSubmit}
+        >
+          <Text style={{ color: "white", fontSize: 20 }}>Submit</Text>
+        </Pressable>
+      </View>
+    </Modal>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#00000040",
-  },
   container: {
-    width: "100%",
-    height: "100%",
+    flex: 1,
+    paddingTop: 80,
     gap: 20,
     alignItems: "center",
-    justifyContent: "flex-start",
-    backgroundColor: "white",
-    padding: 20,
   },
+  textEnable: {
+    fontSize: 20,
+  },
+  textDisable: {
+    fontSize: 20,
+    color: "#ECECEC",
+  },
+
   enable: {
     borderWidth: 2,
     borderColor: "black",
     width: "100%",
+    paddingVertical: 13,
+    paddingHorizontal: 20,
   },
   disable: {
+    paddingHorizontal: 20,
+    paddingVertical: 13,
     borderWidth: 2,
     borderColor: "#ECECEC",
     color: "#ECECEC",
@@ -97,6 +90,18 @@ const styles = StyleSheet.create({
   input: {
     display: "flex",
     width: "100%",
-    gap: 4,
+    gap: 6,
+    fontSize: 17,
+  },
+  button: {
+    backgroundColor: "black",
+    borderRadius: 5,
+    borderWidth: 2,
+    width: 150,
+    height: 45,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
+
+export default TopicModal;
