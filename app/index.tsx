@@ -23,7 +23,7 @@ export default function Home() {
           <TButton
             title="Profile"
             type="xl"
-            onPress={() => onClick("/profile")}
+            onPress={() => onClick("/profile/modal")}
           />
           <TButton title="Topic" type="xl" onPress={() => onClick("/topic")} />
           <TButton title="Post" type="xl" />

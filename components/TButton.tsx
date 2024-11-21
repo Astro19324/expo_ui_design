@@ -10,11 +10,7 @@ export type TButtonProps = ButtonProps & {
   type?: "sm" | "md" | "lg" | "xl";
 };
 
-export default function ThemedButton({
-  type = "md",
-  title,
-  onPress,
-}: TButtonProps) {
+const TButton = ({ type = "md", title, onPress }: TButtonProps) => {
   return (
     <View style={{ flex: 1 }}>
       <Pressable
@@ -25,7 +21,7 @@ export default function ThemedButton({
       </Pressable>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   border: {
@@ -53,3 +49,5 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
 });
+
+export default TButton;
