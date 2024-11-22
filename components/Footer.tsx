@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     position: "fixed",
+    backgroundColor: "white",
   },
   text: {
     color: "#666",

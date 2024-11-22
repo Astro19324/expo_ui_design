@@ -1,18 +1,28 @@
-import { View, Text, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  type ButtonProps,
+} from "react-native";
 import { Image } from "expo-image";
 
 const blurhash =
   "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
 
-const UserCard = () => {
+export type TUserCardProps = {
+  category: string;
+  name: string;
+  description: string;
+};
+
+const UserCard = ({ category, name, description }: TUserCardProps) => {
   return (
     <View style={styles.box}>
       <View style={styles.textContainer}>
-        <Text style={styles.description}>Category</Text>
-        <Text style={styles.name}>Name</Text>
-        <Text style={styles.description}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </Text>
+        <Text style={styles.description}>{category}</Text>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.description}>{description}</Text>
       </View>
       <Image
         style={styles.image}

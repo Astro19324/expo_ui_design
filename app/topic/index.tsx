@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet, ScrollView, Text, Pressable } from "react-native";
+import { Link } from "expo-router";
 
 import LocationInput from "@/components/LocationInput";
 import SearchInput from "@/components/SearchInput";
@@ -7,7 +8,9 @@ import Layout from "@/components/Layout";
 import UserCard from "@/components/UserCard";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
-export default function App() {
+import userData from "@/assets/json/userData.json";
+
+const TopicHome = () => {
   return (
     <Layout>
       <View style={styles.container}>
@@ -21,9 +24,15 @@ export default function App() {
         </View>
         <ScrollView>
           <View style={styles.content}>
-            <UserCard />
-            <UserCard />
-            <UserCard />
+            {userData.map((user, index) => (
+              <Link href="/topic/details" key={index}>
+                <UserCard
+                  name={user.name}
+                  category={user.category}
+                  description={user.description}
+                />
+              </Link>
+            ))}
           </View>
         </ScrollView>
         <Pressable style={styles.iconPosition}>
@@ -37,7 +46,7 @@ export default function App() {
       </View>
     </Layout>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -80,3 +89,5 @@ const styles = StyleSheet.create({
     borderWidth: 10,
   },
 });
+
+export default TopicHome;

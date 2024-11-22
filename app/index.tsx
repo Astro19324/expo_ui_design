@@ -1,13 +1,9 @@
-import { StyleSheet, View, Text, Pressable, ScrollView } from "react-native";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
 import { Link, router } from "expo-router";
 import Layout from "@/components/Layout";
 import TButton from "@/components/TButton";
 
 export default function Home() {
-  const onClick = (path: String) => {
-    router.push(path);
-  };
-
   return (
     <Layout>
       <View style={styles.head}>
@@ -23,9 +19,13 @@ export default function Home() {
           <TButton
             title="Profile"
             type="xl"
-            onPress={() => onClick("/profile/modal")}
+            onPress={() => router.push("/profile/modal")}
           />
-          <TButton title="Topic" type="xl" onPress={() => onClick("/topic")} />
+          <TButton
+            title="Topic"
+            type="xl"
+            onPress={() => router.push("/topic")}
+          />
           <TButton title="Post" type="xl" />
         </View>
       </ScrollView>
@@ -37,9 +37,7 @@ const styles = StyleSheet.create({
   head: {
     height: 100,
     alignItems: "center",
-    justifyContent: "flex-start",
-    gap: 20,
-    paddingHorizontal: 20,
+    justifyContent: "space-between",
     flexDirection: "row",
   },
   content: {

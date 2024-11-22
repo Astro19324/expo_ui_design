@@ -2,11 +2,11 @@ import React, { ReactNode } from "react";
 import { View, StyleSheet } from "react-native";
 import Footer from "./Footer";
 
-type LayoutProps = {
+type TLayoutProps = {
   children: ReactNode;
 };
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children }: TLayoutProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>{children}</View>
