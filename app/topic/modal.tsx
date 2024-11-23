@@ -14,7 +14,7 @@ const TopicModal = () => {
     <Modal>
       <View style={styles.container}>
         <View>
-          <Text style={styles.text}>Message</Text>
+          <Text style={styles.titleText}>Message</Text>
           <TextInput
             multiline={true}
             style={styles.textArea}
@@ -23,11 +23,13 @@ const TopicModal = () => {
           />
         </View>
         <View>
-          <Text style={styles.text}>Type</Text>
+          <Text style={styles.titleText}>Type</Text>
           <View style={{ flexDirection: "row" }}>
-            <Text style={styles.button}>Filter A</Text>
-            <Text style={styles.button}>Filter B</Text>
-            <Text style={styles.button}>Filter C</Text>
+            {["Option A", "Option B", "Option C"].map((buttonText, index) => (
+              <Text style={styles.button} key={index}>
+                {buttonText}
+              </Text>
+            ))}
           </View>
         </View>
         <View style={styles.checkboxContianer}>
@@ -42,10 +44,10 @@ const TopicModal = () => {
 
         <View style={styles.buttonContainer}>
           <Pressable
-            style={styles.buttonPost}
+            style={styles.postButton}
             onPress={() => router.push("/topic/chat")}
           >
-            <Text style={styles.textPost}>Post</Text>
+            <Text style={styles.postText}>Post</Text>
           </Pressable>
         </View>
       </View>
@@ -60,46 +62,53 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
 
-  text: {
+  titleText: {
     fontSize: 20,
     paddingBottom: 10,
   },
+  text: {
+    fontSize: 20,
+    paddingLeft: 10,
+  },
   textArea: {
-    height: 100,
+    height: 120,
     borderColor: "black",
-    borderWidth: 2,
+    borderWidth: 1,
+    borderRadius: 2,
     paddingHorizontal: 10,
     fontSize: 16,
-  },
-  button: {
-    flex: 1,
-    borderWidth: 2,
-    borderColor: "black",
-    textAlign: "center",
-    fontSize: 20,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-  },
-  checkboxContianer: {
-    flexDirection: "row",
-    alignItems: "center",
-    height: 60,
-  },
-  buttonPost: {
-    height: 50,
-    width: 140,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "black",
-  },
-  textPost: {
-    color: "white",
-    fontSize: 20,
   },
   buttonContainer: {
     flex: 1,
     alignItems: "center",
   },
+  button: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: "black",
+    textAlign: "center",
+    fontSize: 17,
+    paddingVertical: 7,
+  },
+
+  checkboxContianer: {
+    flexDirection: "row",
+    alignItems: "center",
+    height: 60,
+  },
+  postButton: {
+    height: 50,
+    width: 140,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "black",
+    borderRadius: 5,
+  },
+  postText: {
+    color: "white",
+    fontSize: 20,
+  },
+
   box: {
     width: 30,
     height: 30,

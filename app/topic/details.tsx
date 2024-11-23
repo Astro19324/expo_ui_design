@@ -9,21 +9,20 @@ import topicListData from "@/assets/json/topicListData.json";
 import customData from "@/assets/json/customData.json";
 
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import Header from "@/components/Header";
 
 export default function Profile() {
   return (
-    <Layout>
+    <Layout home="black" message="red" account="black">
       <View style={styles.container}>
-        <View style={styles.title}>
-          <Text>Back</Text>
-          <Text>Topic</Text>
-          <Text>Alert Me</Text>
-        </View>
+        <Header name="Topics" />
         <SearchInput />
         <View style={styles.buttonContainer}>
-          <Text style={styles.button}>Filter A</Text>
-          <Text style={styles.button}>Filter B</Text>
-          <Text style={styles.button}>Filter C</Text>
+          {["Fiter A", "Fiter B", "Fiter C"].map((buttonText, index) => (
+            <Text style={styles.button} key={index}>
+              {buttonText}
+            </Text>
+          ))}
         </View>
         <UserCard
           name={topicListData[0].name}
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: "black",
     textAlign: "center",
     fontSize: 20,

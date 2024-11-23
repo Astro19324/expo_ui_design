@@ -34,7 +34,7 @@ const Bottom = ({ home, message, account }: BottomProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 70,
+    height: 60,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",

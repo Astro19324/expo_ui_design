@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingVertical: 20,
     paddingRight: 20,
-    borderRadius: 5,
+    borderRadius: 3,
     borderColor: "black",
-    borderWidth: 2,
+    borderWidth: 1,
   },
   textContainer: {
     flex: 1,
@@ -62,9 +62,8 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   image: {
-    width: 100,
-    height: 100,
-    backgroundColor: "black",
+    width: 70,
+    height: 70,
   },
 });
 

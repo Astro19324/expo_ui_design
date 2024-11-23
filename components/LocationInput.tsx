@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: "black",
     paddingLeft: 8,
   },
@@ -37,17 +37,17 @@ const styles = StyleSheet.create({
 const pickerSelectStyles = StyleSheet.create({
   inputIOS: {
     fontSize: 16,
-    paddingVertical: 12,
-    paddingHorizontal: 5,
-    borderWidth: 2,
+    paddingVertical: 5,
+    paddingHorizontal: 9,
+    borderWidth: 1,
     borderColor: "black",
     color: "black",
   },
   inputAndroid: {
     fontSize: 16,
     paddingHorizontal: 5,
-    paddingVertical: 8,
-    borderWidth: 2,
+    paddingVertical: 9,
+    borderWidth: 1,
     borderColor: "black",
     color: "black",
   },

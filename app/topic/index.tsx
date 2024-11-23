@@ -9,15 +9,13 @@ import UserCard from "@/components/UserCard";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 import topicListData from "@/assets/json/topicListData.json";
+import Header from "@/components/Header";
 
 const TopicHome = () => {
   return (
-    <Layout>
+    <Layout home="black" message="red" account="black">
       <View style={styles.container}>
-        <View style={styles.textContainer}>
-          <Text style={styles.topics}>Topics</Text>
-          <Text style={styles.alertMe}>Alert Me</Text>
-        </View>
+        <Header name="Topics" />
         <View style={styles.inputBox}>
           <SearchInput />
           <LocationInput />
