@@ -21,7 +21,7 @@ const Bottom = ({ home, message, account }: BottomProps) => {
       <TouchableOpacity>
         <Ionicons name="chatbubble-outline" size={36} color={message} />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => router.push("/profile")}>
         <MaterialCommunityIcons
           name="account-circle-outline"
           size={36}
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     backgroundColor: "white",
+    paddingHorizontal: 20,
   },
   text: {
     color: "#666",

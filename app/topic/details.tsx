@@ -1,4 +1,12 @@
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
+import { useState } from "react";
+
 import { Link } from "expo-router";
 import Layout from "@/components/Layout";
 import SearchInput from "@/components/SearchInput";
@@ -11,17 +19,34 @@ import customData from "@/assets/json/customData.json";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Header from "@/components/Header";
 
-export default function Profile() {
+const TopicDetail = () => {
+  const filterList = ["Fiter A", "Fiter B", "Fiter C"];
+  const [filter, setFilter] = useState("");
+
   return (
     <Layout home="black" message="red" account="black">
       <View style={styles.container}>
         <Header name="Topics" />
         <SearchInput />
         <View style={styles.buttonContainer}>
-          {["Fiter A", "Fiter B", "Fiter C"].map((buttonText, index) => (
-            <Text style={styles.button} key={index}>
-              {buttonText}
-            </Text>
+          {filterList.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.filterButton,
+                filter === item && styles.selectedFilterButton,
+              ]}
+              onPress={() => setFilter(item)}
+            >
+              <Text
+                style={[
+                  styles.filterText,
+                  filter === item && styles.selectedFilterText,
+                ]}
+              >
+                {item}
+              </Text>
+            </TouchableOpacity>
           ))}
         </View>
         <UserCard
@@ -47,7 +72,7 @@ export default function Profile() {
       </View>
     </Layout>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -62,14 +87,22 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
   },
-  button: {
+  filterButton: {
     flex: 1,
+    padding: 8,
     borderWidth: 1,
-    borderColor: "black",
-    textAlign: "center",
-    fontSize: 20,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    borderColor: "#aaa",
+    alignItems: "center",
+  },
+  selectedFilterButton: {
+    backgroundColor: "#000",
+    borderColor: "#000",
+  },
+  filterText: {
+    color: "#000",
+  },
+  selectedFilterText: {
+    color: "#fff",
   },
   custom: {
     paddingTop: 10,
@@ -91,3 +124,5 @@ const styles = StyleSheet.create({
     borderWidth: 15,
   },
 });
+
+export default TopicDetail;

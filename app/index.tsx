@@ -36,7 +36,7 @@ const Home = () => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => router.push("/profile/myProfile")}
+            onPress={() => router.push("/topic/details")}
             style={styles.block}
           >
             <Text style={styles.blockText}>Post</Text>
