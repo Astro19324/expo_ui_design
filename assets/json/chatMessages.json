@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "text": "Lorem ipsum dolor sit amet, maximus consectetur adipiscing elit.",
+    "isUser": false
+  },
+  {
+    "id": 2,
+    "text": "Lorem ipsum dolor sit amet, maximus consectetur adipiscing elit.",
+    "isUser": true
+  },
+  {
+    "id": 3,
+    "text": "Lorem ipsum dolor sit amet, maximus consectetur adipiscing elit.",
+    "isUser": false
+  },
+  {
+    "id": 4,
+    "text": "Lorem ipsum dolor sit amet, maximus consectetur adipiscing elit.",
+    "isUser": true
+  }
+]
