@@ -1,10 +1,11 @@
 import { StyleSheet, View, Text, Pressable } from "react-native";
+import { Link } from "expo-router";
 import Layout from "@/components/Layout";
 import SearchInput from "@/components/SearchInput";
 import UserCard from "@/components/UserCard";
 import CustomCard from "@/components/CustomCard";
 
-import userData from "@/assets/json/userData.json";
+import topicListData from "@/assets/json/topicListData.json";
 import customData from "@/assets/json/customData.json";
 
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
@@ -19,23 +20,21 @@ export default function Profile() {
           <Text>Alert Me</Text>
         </View>
         <SearchInput />
-        <View style={styles.textContainer}>
+        <View style={styles.buttonContainer}>
           <Text style={styles.button}>Filter A</Text>
           <Text style={styles.button}>Filter B</Text>
           <Text style={styles.button}>Filter C</Text>
         </View>
         <UserCard
-          name={userData[0].name}
-          category={userData[0].category}
-          description={userData[0].description}
+          name={topicListData[0].name}
+          category={topicListData[0].category}
+          description={topicListData[0].description}
         />
         <View style={styles.custom}>
           {customData.map((custom, index) => (
-            <CustomCard
-              name={custom.name}
-              description={custom.description}
-              key={index}
-            />
+            <Link href="/topic/modal" key={index}>
+              <CustomCard name={custom.name} description={custom.description} />
+            </Link>
           ))}
         </View>
         <Pressable style={styles.iconPosition}>
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     padding: 10,
   },
-  textContainer: {
+  buttonContainer: {
     flexDirection: "row",
   },
   button: {

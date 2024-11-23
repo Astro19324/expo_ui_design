@@ -8,7 +8,7 @@ import Layout from "@/components/Layout";
 import UserCard from "@/components/UserCard";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
-import userData from "@/assets/json/userData.json";
+import topicListData from "@/assets/json/topicListData.json";
 
 const TopicHome = () => {
   return (
@@ -24,7 +24,7 @@ const TopicHome = () => {
         </View>
         <ScrollView>
           <View style={styles.content}>
-            {userData.map((user, index) => (
+            {topicListData.map((user, index) => (
               <Link href="/topic/details" key={index}>
                 <UserCard
                   name={user.name}

@@ -1,11 +1,16 @@
-import { StyleSheet, View, Text, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { Link, router } from "expo-router";
 import Layout from "@/components/Layout";
-import TButton from "@/components/TButton";
 
-export default function Home() {
+const Home = () => {
   return (
-    <Layout>
+    <Layout home="red" message="black" account="black">
       <View style={styles.head}>
         <Text style={styles.textSize}>Welcome</Text>
 
@@ -16,22 +21,31 @@ export default function Home() {
 
       <ScrollView>
         <View style={styles.content}>
-          <TButton
-            title="Profile"
-            type="xl"
+          <TouchableOpacity
             onPress={() => router.push("/profile/modal")}
-          />
-          <TButton
-            title="Topic"
-            type="xl"
+            style={styles.block}
+          >
+            <Text style={styles.blockText}>Profile</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
             onPress={() => router.push("/topic")}
-          />
-          <TButton title="Post" type="xl" />
+            style={styles.block}
+          >
+            <Text style={styles.blockText}>Topic</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => router.push("/profile/myProfile")}
+            style={styles.block}
+          >
+            <Text style={styles.blockText}>Post</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </Layout>
   );
-}
+};
 
 const styles = StyleSheet.create({
   head: {
@@ -45,9 +59,23 @@ const styles = StyleSheet.create({
     gap: 10,
     flexDirection: "column",
   },
-
+  block: {
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 3,
+    height: 170,
+    backgroundColor: "#eee",
+    paddingTop: 40,
+    paddingLeft: 20,
+  },
+  blockText: {
+    fontSize: 25,
+    fontWeight: "bold",
+  },
   textSize: {
     fontSize: 17,
   },
   textColor: { color: "#88BAEF" },
 });
+
+export default Home;
