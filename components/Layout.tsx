@@ -1,16 +1,19 @@
 import React, { ReactNode } from "react";
 import { View, StyleSheet } from "react-native";
-import Footer from "./Footer";
+import Bottom from "@/components/Bottom";
 
-type TLayoutProps = {
+interface LayoutProps {
   children: ReactNode;
-};
+  home: string;
+  message: string;
+  account: string;
+}
 
-const Layout = ({ children }: TLayoutProps) => {
+const Layout = ({ children, home, message, account }: LayoutProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>{children}</View>
-      <Footer />
+      <Bottom home={home} message={message} account={account} />
     </View>
   );
 };

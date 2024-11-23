@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { Pressable, StyleSheet, View, Text } from "react-native";
 import Animated, { FadeIn, SlideInDown } from "react-native-reanimated";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 type ModalProps = {
@@ -22,9 +22,9 @@ const Modal = ({ children }: ModalProps) => {
             marginLeft: "auto",
           }}
         >
-          <Link href={"/"}>
+          <Pressable onPress={() => router.back()}>
             <AntDesign name="closecircleo" size={40} color="black" />
-          </Link>
+          </Pressable>
         </View>
         <View style={styles.child}>{children}</View>
       </Animated.View>

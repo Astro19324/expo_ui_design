@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { TextInput, View, Text, StyleSheet, Pressable } from "react-native";
+import {
+  TextInput,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 import Modal from "@/components/Modal";
 
@@ -9,7 +15,9 @@ const TopicModal = () => {
   const [state, setState] = useState(true);
 
   const onSubmit = async () => {
-    setState(false);
+    if (email.length) {
+      setState(false);
+    }
   };
 
   return (
@@ -43,15 +51,9 @@ const TopicModal = () => {
           <View />
         )}
 
-        <Pressable
-          style={({ pressed }) => [
-            { opacity: pressed ? 0.7 : 1 },
-            styles.button,
-          ]}
-          onPress={onSubmit}
-        >
-          <Text style={{ color: "white", fontSize: 20 }}>Submit</Text>
-        </Pressable>
+        <TouchableOpacity style={styles.button} onPress={onSubmit}>
+          <Text style={styles.submitText}>Submit</Text>
+        </TouchableOpacity>
       </View>
     </Modal>
   );
@@ -69,22 +71,22 @@ const styles = StyleSheet.create({
   },
   textDisable: {
     fontSize: 20,
-    color: "#ECECEC",
+    color: "#DBDBDB",
   },
 
   enable: {
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: "black",
     width: "100%",
     paddingVertical: 13,
     paddingHorizontal: 20,
   },
   disable: {
+    borderWidth: 1,
     paddingHorizontal: 20,
     paddingVertical: 13,
-    borderWidth: 2,
-    borderColor: "#ECECEC",
-    color: "#ECECEC",
+    borderColor: "#DBDBDB",
+    color: "#DBDBDB",
     width: "100%",
   },
   input: {
@@ -96,11 +98,14 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "black",
     borderRadius: 5,
-    borderWidth: 2,
     width: 150,
     height: 45,
     alignItems: "center",
     justifyContent: "center",
+  },
+  submitText: {
+    fontSize: 20,
+    color: "white",
   },
 });
 
